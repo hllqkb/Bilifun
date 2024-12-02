@@ -1,0 +1,72 @@
+   server:
+     port: 8081
+   # 下面是PageHelper的配置
+   pagehelper:
+    helper-dialect: mysql
+    reasonable: true
+    default-count: true
+   mybatis-plus:
+     configuration:
+       default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
+     global-config:
+       db-config:
+         id-type: auto
+         logic-delete-field: deleted
+   sa-token:
+     token-name: satoken
+     timeout: 2592000
+     active-timeout: -1
+     is-concurrent: true
+     is-share: true
+     token-style: uuid
+     is-log: true
+   spring:
+     datasource:
+       type: com.alibaba.druid.pool.DruidDataSource
+       druid:
+         driver-class-name: com.mysql.cj.jdbc.Driver
+         url: jdbc:mysql://localhost:3306/mp?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+         username: root
+         password: root
+         initial-size: 8
+         max-active: 16
+         min-idle: 8
+         max-wait: 60000
+         test-while-idle: true
+         test-on-borrow: false
+         test-on-return: false
+     redis:
+       database: 0
+       host: localhost
+       port: 6379
+       password: 123456
+       jedis:
+         pool:
+           max-active: 1000
+           max-wait: -1ms
+           max-idle: 16
+           min-idle: 8
+     data:
+       mongodb:
+         host: 你的主机IP地址
+         port: 27017
+         database: csdn
+         authentication-database: admin
+         username: admin
+         password: 你的密码
+   knife4j:
+     enable: true
+     openapi:
+       title: 用户管理接口文档
+       description: "用户管理接口文档"
+       email: zhanghuyi@itcast.cn
+       concat: 虎哥
+       url: https://www.itcast.cn
+       version: v1.0.0
+       group:
+         default:
+           group-name: default
+           api-rule: package
+           api-rule-resources:
+             - com.itheima.mp.controller
+   
